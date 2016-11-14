@@ -1,0 +1,1 @@
+json.array! @buisness_units, partial: 'buisness_units/buisness_unit', as: :buisness_unit

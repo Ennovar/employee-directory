@@ -1,0 +1,36 @@
+<div>
+  <div>
+    <div>
+      <select multiple id="skills">
+        <% @skills.each do |skill| %>
+          <option value=<%=skill.id%>><%= skill.title %><option>
+        <% end %>
+      </select>
+      <button onclick="search()">
+        Search
+      </button>
+    </div>
+    <div>
+      <ul id="employees">
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      function search() {
+        var skills_ids = $('#skills').val();
+        $.ajax({
+          url: "/search",
+          type: "POST",
+          data: {skill_ids: skills_ids},
+          success: function suc(response) {
+            $('#employees').empty()
+            for(var i = 0; i < response.length; i++){
+              console.log(response);
+              $('#employees').append("<li>" + response[i].name + "</li>")
+            }
+          }
+        })
+      }
+    </script>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+json.partial! "buisness_units/buisness_unit", buisness_unit: @buisness_unit

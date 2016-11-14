@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @employee.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @employee.email %>
+</p>
+
+<p>
+  <strong>Slack:</strong>
+  <%= @employee.slack %>
+</p>
+
+<p>
+  <strong>Wsu:</strong>
+  <%= @employee.wsu_id %>
+</p>
+<p>
+  <strong>Skills</strong>
+</p>
+<ul>
+  <% @employee.skills.each do |skill| %>
+    <li><%= link_to skill.title, skill %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

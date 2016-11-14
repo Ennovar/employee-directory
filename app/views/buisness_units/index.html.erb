@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Buisness Units</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @buisness_units.each do |buisness_unit| %>
+      <tr>
+        <td><%= buisness_unit.title %></td>
+        <td>
+          <ul>
+        <% buisness_unit.employees.each do |employee| %>
+          <li><%= employee.name %></li>
+        <% end %>
+          </ul>
+        </td>
+        <td><%= link_to 'Show', buisness_unit %></td>
+        <td><%= link_to 'Edit', edit_buisness_unit_path(buisness_unit) %></td>
+        <td><%= link_to 'Destroy', buisness_unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Buisness Unit', new_buisness_unit_path %>
