@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'employees#index'
   get 'search/skills'
   post 'search', to: 'search#search'
 
