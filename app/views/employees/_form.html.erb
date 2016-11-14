@@ -38,7 +38,13 @@
     <%= f.label :wsu_id %>
     <%= f.text_field :wsu_id %>
   </div>
-
+  <div class="field">
+  </div>
+  <select name="employee[skill_ids]" multiple id="skills">
+    <% Skill.all.each do |skill| %>
+      <option value=<%=skill.id%>><%= skill.title %><option>
+    <% end %>
+ </select>
   <div class="actions">
     <%= f.submit %>
   </div>
